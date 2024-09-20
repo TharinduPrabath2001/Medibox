@@ -1,0 +1,423 @@
+[
+    {
+        "id": "b995496836fa953f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a540c398e267d8ec",
+        "type": "mqtt in",
+        "z": "b995496836fa953f",
+        "name": "",
+        "topic": "PRABATH-LDR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c0f1d28c1c7da20",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 220,
+        "wires": [
+            [
+                "29cde7605f977f4f",
+                "36e35386694ee09e"
+            ]
+        ]
+    },
+    {
+        "id": "29cde7605f977f4f",
+        "type": "ui_gauge",
+        "z": "b995496836fa953f",
+        "name": "",
+        "group": "dd1c65ce28e079c9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "36e35386694ee09e",
+        "type": "ui_chart",
+        "z": "b995496836fa953f",
+        "name": "",
+        "group": "dd1c65ce28e079c9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b49cbaf9b6cc243c",
+        "type": "mqtt in",
+        "z": "b995496836fa953f",
+        "name": "",
+        "topic": "PRABATH-whichLDR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c0f1d28c1c7da20",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "ea51d59fd8e1c00f"
+            ]
+        ]
+    },
+    {
+        "id": "ea51d59fd8e1c00f",
+        "type": "ui_text",
+        "z": "b995496836fa953f",
+        "group": "dd1c65ce28e079c9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Higher Light intesity Side :",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 730,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "172b488adef8eb25",
+        "type": "mqtt out",
+        "z": "b995496836fa953f",
+        "name": "",
+        "topic": "PRABATH-Command1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c0f1d28c1c7da20",
+        "x": 1080,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "94d777f8932301fd",
+        "type": "ui_slider",
+        "z": "b995496836fa953f",
+        "name": "",
+        "label": "Controlling Factor :",
+        "tooltip": "",
+        "group": "589f4211c2458dea",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 730,
+        "y": 680,
+        "wires": [
+            [
+                "172b488adef8eb25"
+            ]
+        ]
+    },
+    {
+        "id": "289c1429c18591cb",
+        "type": "ui_slider",
+        "z": "b995496836fa953f",
+        "name": "",
+        "label": "Minimum Angle :",
+        "tooltip": "",
+        "group": "589f4211c2458dea",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 720,
+        "y": 760,
+        "wires": [
+            [
+                "b2efdfec46e7f122"
+            ]
+        ]
+    },
+    {
+        "id": "b2efdfec46e7f122",
+        "type": "mqtt out",
+        "z": "b995496836fa953f",
+        "name": "",
+        "topic": "PRABATH-Command2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c0f1d28c1c7da20",
+        "x": 1080,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "29d81bdc1d9daf76",
+        "type": "mqtt in",
+        "z": "b995496836fa953f",
+        "name": "",
+        "topic": "PRABATH-ANG",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3c0f1d28c1c7da20",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "e872a41f1457af03"
+            ]
+        ]
+    },
+    {
+        "id": "e872a41f1457af03",
+        "type": "ui_text",
+        "z": "b995496836fa953f",
+        "group": "589f4211c2458dea",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Angle :",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 680,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "06d903f830400689",
+        "type": "ui_dropdown",
+        "z": "b995496836fa953f",
+        "name": "",
+        "label": "Saved Medicines",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "589f4211c2458dea",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Medicine A",
+                "value": "A",
+                "type": "str"
+            },
+            {
+                "label": "Medicine B",
+                "value": "B",
+                "type": "str"
+            },
+            {
+                "label": "Custom",
+                "value": "C",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 620,
+        "wires": [
+            [
+                "f209c8339985ee52",
+                "1d45f7bbba9796f5"
+            ]
+        ]
+    },
+    {
+        "id": "f209c8339985ee52",
+        "type": "function",
+        "z": "b995496836fa953f",
+        "name": "function 1",
+        "func": "if (msg.payload === \"A\") {\n    msg.payload = 0.5;\n    msg.enabled = false;\n    return msg;\n}\nif (msg.payload === \"B\") {\n    msg.payload = 0.25;\n    msg.enabled = false;\n    return msg;\n} if (msg.payload === \"C\") {\n    msg.enabled = true;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 700,
+        "wires": [
+            [
+                "94d777f8932301fd"
+            ]
+        ]
+    },
+    {
+        "id": "1d45f7bbba9796f5",
+        "type": "function",
+        "z": "b995496836fa953f",
+        "name": "function 2",
+        "func": "if (msg.payload === \"A\") {\n    msg.payload = 30;\n    msg.enabled = false;\n    return msg;\n}\nif (msg.payload === \"B\") {\n    msg.payload = 60;\n    msg.enabled = false;\n    return msg;\n}\nif (msg.payload === \"C\") {\n    msg.enabled = true;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 760,
+        "wires": [
+            [
+                "289c1429c18591cb"
+            ]
+        ]
+    },
+    {
+        "id": "3c0f1d28c1c7da20",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dd1c65ce28e079c9",
+        "type": "ui_group",
+        "name": "Light Intensity Measurement",
+        "tab": "dc2e9f1a03897518",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "589f4211c2458dea",
+        "type": "ui_group",
+        "name": "Commands",
+        "tab": "dc2e9f1a03897518",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dc2e9f1a03897518",
+        "type": "ui_tab",
+        "name": "Medibox",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
